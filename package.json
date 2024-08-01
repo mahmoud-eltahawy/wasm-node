@@ -1,0 +1,12 @@
+{
+  "name": "node-wasm",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@types/express": "^4.17.21"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

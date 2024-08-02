@@ -2,9 +2,15 @@
   "name": "node-wasm",
   "module": "index.js",
   "type": "module",
+  "scripts": {
+    "pre": "bun install && cd fibonacci && wasm-pack build --target nodejs --out-dir ../node_modules/fibonacci && cd ..",
+    "build": "bun x swc index.js -d dist"
+  },
   "devDependencies": {
-    "typescript": "^5.5.4",
-    "@types/express": "^4.17.21"
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.5",
+    "@types/express": "^4.17.21",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "express": "^4.19.2"

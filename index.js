@@ -2,9 +2,15 @@ import express from 'express'
 import {fibonacci} from 'fibonacci';
 import { MongoClient, ObjectId } from 'mongodb';
 
-/**@type {3000 | 8080} port*/
-const port = 3000;
-const mongo_client = new MongoClient('mongodb://localhost:27017');
+const MONGO_URL = process.env.MONGO_URL
+const PORT = process.env.PORT
+
+if (!MONGO_URL || !PORT) {
+  console.log("remember to include enviroment variables MONGO_URL and PORT")
+  process.exit(1)
+}
+
+const mongo_client = new MongoClient(MONGO_URL);
 const app = express()
 app.use(express.json())
 
@@ -67,6 +73,6 @@ app.delete("/users/:id",async (req,res,_next) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })

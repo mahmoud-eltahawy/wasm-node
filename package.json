@@ -3,7 +3,7 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "pre": "bun install && cd fibonacci && wasm-pack build --target nodejs --out-dir ../node_modules/fibonacci && cd ..",
+    "pre": "wasm-pack build --target nodejs --out-dir pkg ./fibonacci && bun install ",
     "build": "bun x swc index.js -d dist"
   },
   "devDependencies": {
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "express": "^4.19.2",
+    "fibonacci": "./fibonacci/pkg/",
     "mongodb": "^6.8.0"
   }
 }
